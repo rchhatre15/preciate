@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <a href="/" class="site-name-link"><div class="site-name"><img src="/images/galaxy.png" alt="Galaxy Icon" class="logo">Preciate</div></a>
+      <div class="site-tagline">Gratitude Made Universal</div>
+      <a href="/" class="btn">Back to Journal</a>
+    </div>
+  </header>
+  
+  <main class="container">
+    <div class="form-container">
+      <h2>Add New Gratitude Post</h2>
+      
+      <form id="gratitudeForm" action="/post/new" method="POST">
+        <div class="form-group">
+          <label for="title">Post Title:</label>
+          <input type="text" id="title" name="title" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="author">Your Name:</label>
+          <input type="text" id="author" name="author" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="gratitudeText">What are you grateful for today?</label>
+          <textarea id="gratitudeText" name="gratitudeText" required></textarea>
+        </div>
+        
+        <div class="form-group">
+          <div class="image-selection-header">
+            <label>Select an Astronomy Picture:</label>
+            <button type="button" id="randomizeBtn" class="btn-small"><i class="randomize-icon"></i>Randomize</button>
+          </div>
+          <div id="nasaImageContainer" class="nasa-image-container">
+            
+          </div>
+          <input type="hidden" id="imgURL" name="imgURL">
+          <input type="hidden" id="imgDate" name="imgDate">
+          <input type="hidden" id="imgTitle" name="imgTitle">
+        </div>
+        
+        <div class="form-actions">
+          <button type="submit" class="btn">Submit Post</button>
+        </div>
+      </form>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <p>&copy; <%= new Date().getFullYear() %> Preciate | Images from NASA</p>
+      <p class="attribution"><small><a href="https://www.flaticon.com/free-icons/universe" title="universe icons" target="_blank">Universe icons created by Freepik - Flaticon</a></small></p>
+    </div>
+  </footer>
+  <script>
+    window.NASA_API_KEY = "<%= process.env.NASA_API_KEY %>";
+  </script>
+  <script src="/js/form.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <a href="/" class="site-name-link"><div class="site-name"><img src="/images/galaxy.png" alt="Galaxy Icon" class="logo">Preciate</div></a>
+      <div class="site-tagline">Gratitude Made Universal</div>
+      <a href="/post/new" class="btn" data-hover="Express gratitude">Add New Post</a>
+    </div>
+  </header>
+  
+  <main class="container">
+    <div class="posts-container">
+      <h2>Recent Posts</h2>
+      
+      <% if (posts && posts.length > 0) { %>
+        <div class="posts-grid">
+          <% posts.forEach(post => { %>
+            <div class="post-card">
+              <div class="post-image">
+                <img src="<%= post.imgURL %>" alt="<%= post.title %>">
+              </div>
+              <div class="post-content">
+                <h3><%= post.title %></h3>
+                <p class="post-meta">By <%= post.author %> on <%= new Date(post.dateCreated).toLocaleDateString() %></p>
+                <p class="post-text"><%= post.gratitudeText %></p>
+                <p class="post-meta">Image Date: <%= post.imgDate %></p>
+              </div>
+            </div>
+          <% }); %>
+        </div>
+      <% } else { %>
+        <div class="no-posts">
+          <p>Lock in and be grateful.</p>
+        </div>
+      <% } %>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <p>&copy; <%= new Date().getFullYear() %> Preciate | Images from NASA</p>
+      <p class="attribution"><small><a href="https://www.flaticon.com/free-icons/universe" title="universe icons" target="_blank">Universe icons created by Freepik - Flaticon</a></small></p>
+    </div>
+  </footer>
+</body>
+</html>

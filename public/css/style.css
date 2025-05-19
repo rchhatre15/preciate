@@ -1,0 +1,313 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f5f5f5;
+  color: #121212;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header {
+  background-color: #f9f9f9;
+  color: #121212;
+  padding: 20px 0;
+  border-bottom: 2px solid #d81b60;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-name-link {
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.site-name-link:hover {
+  opacity: 0.8;
+}
+
+.site-name {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #d81b60;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+}
+
+.site-tagline {
+  font-size: 1.2rem;
+  text-align: center;
+  flex-grow: 1;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 20px;  
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #d81b60;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #d81b60;
+  color: #ffffff;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-top: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover {
+  background-color: #ad1457;
+}
+
+.btn[data-hover]::before {
+  content: attr(data-hover);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f9f9f9;
+  color: #d81b60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.btn[data-hover]:hover::before {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background-color: #424242;
+  margin-left: 10px;
+}
+
+.btn-secondary:hover {
+  background-color: #616161;
+}
+
+/* Home Page */
+.intro {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.posts-container {
+  margin: 40px 0;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.post-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(216, 27, 96, 0.15);
+  border: 1px solid #e0e0e0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(216, 27, 96, 0.2);
+}
+
+.post-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.post-content {
+  padding: 20px;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: #757575;
+  margin-bottom: 10px;
+}
+
+.post-text {
+  margin-bottom: 15px;
+}
+
+.no-posts {
+  text-align: center;
+  padding: 40px 0;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Form Page */
+.form-container {
+  background-color: #ffffff; 
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(216, 27, 96, 0.15);
+  margin: 40px auto;
+  max-width: 800px;
+  border: 1px solid #e0e0e0;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #d81b60;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e0e0e0; 
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  background-color: #ffffff; 
+  color: #121212;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: #d81b60; 
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(216, 27, 96, 0.2);
+}
+
+textarea {
+  min-height: 150px;
+}
+
+.image-selection-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.btn-small {
+  background-color: #d81b60;
+  color: white;
+  font-size: 0.85rem;
+  padding: 5px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.btn-small:hover {
+  background-color: #ad1457;
+}
+
+.randomize-icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 5px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.nasa-image-container {
+  margin-top: 5px;
+  min-height: 200px;
+  border: 1px solid #e0e0e0; 
+  border-radius: 5px;
+  padding: 15px;
+  background-color: #f9f9f9; 
+}
+
+.nasa-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.nasa-image-card {
+  border: 2px solid transparent;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.nasa-image-card.selected {
+  border-color: #d81b60; 
+}
+
+.nasa-image {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.nasa-image-title {
+  font-size: 0.8rem;
+  padding: 5px;
+  text-align: center;
+  background-color: #f5f5f5; 
+  color: #121212; 
+}
+
+footer {
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 50px;
+  background-color: #f9f9f9;
+  color: #121212;
+  border-top: 2px solid #d81b60;
+}
